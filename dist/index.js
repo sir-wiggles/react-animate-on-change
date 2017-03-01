@@ -107,7 +107,9 @@ var AnimateOnChange = function (_Component) {
         this.removeEventListeners('endRemoved', this.refs.root, this.animationStart);
       }
       // send separate, animation state change will not render
-      this.setState({ clearAnimationClass: true }); // renders
+      if (this.props.forwards) {
+          this.setState({ clearAnimationClass: true }); // renders
+      }
       this.setState({ animating: false, clearAnimationClass: false });
     }
   }, {
